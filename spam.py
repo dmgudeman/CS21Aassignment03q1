@@ -20,6 +20,7 @@ SPAM_WORDS = {'opportunity', 'inheritance', 'money', 'rich', 'dictator',
               'loan', 'winner', 'warranty', 'lifetime', 'medicine',
               'claim', 'now', 'urgent', 'expire', 'top',
               'plan', 'prize', 'congratulations', "help", "widow"}
+THRESHOLD = 0.1
 
 def spam_indicator(input_message):
     """
@@ -57,10 +58,10 @@ def classify(indicator):
     prints out: ratio, and SPAM-or-HAM classification
     """
     print('SPAM indicator: ', indicator)    # print out ratio
-    if indicator > 0.1:                     # cutoff is .1 for SPAM or HAM
-        print('The message is: SPAM')       # prints out the evaluation
+    if indicator > THRESHOLD:               # threshold for SPAM or HAM
+        print('This message is: SPAM')      # prints out the evaluation
     else:
-        print('The message is: HAM')
+        print('This message is: HAM')
 
 def get_input():
     """
