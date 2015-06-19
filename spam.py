@@ -8,11 +8,10 @@
 """
 Program parses text into words and classifies them as SPAM or HAM
 
-It queries the user for input. It compares the words in the text
+It queries the user for input. It compares the words in the input text
 to a list of SPAM words reqardless of punctuation or case. It then
-determines the frequency of unique SPAM words and provides that number.
-It SPAM words are greater than 10% of the words it the text is classified
-as SPAM, otherwise it is HAM.
+determines the frequency of unique SPAM words. If SPAM words are greater
+than 10% of the words it the text is classified as SPAM, otherwise it is HAM.
 """
 import string
 SPAM_WORDS = {'opportunity', 'inheritance', 'money', 'rich', 'dictator',
@@ -38,7 +37,7 @@ def spam_indicator(input_message):
                             if c not in string.punctuation)
     input_message = input_message.lower() # convert message to lowercase
 
-     # parse message to words and store in a set to filter out duplicates
+    # parse message to words and store in a set to filter out duplicates
     input_words = set(input_message.split())
     for word in input_words:     # iterate through the set
         if word in SPAM_WORDS:   # comparing it to SPAM word list
